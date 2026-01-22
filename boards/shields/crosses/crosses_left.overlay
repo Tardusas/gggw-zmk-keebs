@@ -18,6 +18,7 @@
 };
 
 &spi1 {
+  status = "okay";
   cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
 
   trackball_peripheral: trackball_peripheral@0 {
@@ -32,9 +33,6 @@
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
     force-awake;
-    /* keep the sensor awake while ZMK activity state is ACTIVE,
-        fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-        thus, the sensor would be a `wakeup-source` */
   };
 };
 
